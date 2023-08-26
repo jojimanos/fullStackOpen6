@@ -7,7 +7,7 @@ export const getAll = async () => {
         const response = await axios.get(baseUrl)
         return response.data
     } catch (error) {
-       console.log("There was an error getting the anecdotes", error) 
+        console.log("There was an error getting the anecdotes", error)
     }
 }
 
@@ -16,6 +16,15 @@ export const createNew = async (object) => {
         const response = await axios.post(baseUrl, object)
         return response.data
     } catch (error) {
-       console.log("There was an error creating the anecdote", error) 
+        console.log("There was an error creating the anecdote", error)
+    }
+}
+
+export const voteOne = async (object) => {
+    try {
+        const response = await axios.put(baseUrl + "/" + object.id, object)
+        return response.data
+    } catch (error) {
+        console.log("There was an error while voting", error)
     }
 }
